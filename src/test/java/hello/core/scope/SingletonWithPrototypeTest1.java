@@ -64,15 +64,16 @@ public class SingletonWithPrototypeTest1 {
         public int getCount() {
             return count;
         }
-    }
+        
+        @PostConstruct
+        public void init() {
+            System.out.println("PrototypeBean.init " + this);
+        }
 
-    @PostConstruct
-    public void init() {
-        System.out.println("PrototypeBean.init " + this);
-    }
+        @PreDestroy
+        public void destroy() {
+            System.out.println("PrototypeBean.destroy " + this);
+        }
 
-    @PreDestroy
-    public void destroy() {
-        System.out.println("PrototypeBean.destroy " + this);
     }
 }
